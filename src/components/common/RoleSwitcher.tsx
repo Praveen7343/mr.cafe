@@ -13,6 +13,7 @@ import {
   ShieldCheck
 } from 'lucide-react';
 import { SupabaseModal } from './SupabaseModal';
+import { MrCafeLogo } from './MrCafeLogo';
 
 export const RoleSwitcher: React.FC = () => {
   const {
@@ -87,10 +88,8 @@ export const RoleSwitcher: React.FC = () => {
             </>
           ) : (
             <div className="flex items-center space-x-2">
-              <div className="w-6 h-6 rounded-lg bg-amber-600/30 flex items-center justify-center text-amber-300">
-                <Coffee className="w-3.5 h-3.5" />
-              </div>
-              <span className="font-bold text-xs text-amber-200">Brew &amp; Bite Customer Portal</span>
+              <MrCafeLogo className="w-6 h-6 shrink-0" />
+              <span className="font-extrabold text-xs text-amber-200">Mr. CAFE Portal</span>
             </div>
           )}
         </div>

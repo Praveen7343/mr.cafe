@@ -1,6 +1,7 @@
 import React from 'react';
 import { useCafe } from '../../context/CafeContext';
-import { Coffee, Search, SlidersHorizontal, Star } from 'lucide-react';
+import { Search, SlidersHorizontal, Star } from 'lucide-react';
+import { MrCafeLogo } from '../common/MrCafeLogo';
 
 export const CustomerHeader: React.FC = () => {
   const {
@@ -27,14 +28,12 @@ export const CustomerHeader: React.FC = () => {
           onClick={() => setCustomerView('home')}
           className="flex items-center space-x-2.5 cursor-pointer group"
         >
-          <div className="w-10 h-10 rounded-2xl bg-[#78350F] flex items-center justify-center text-amber-100 shadow-sm group-hover:bg-[#602A0C] transition-colors">
-            <Coffee className="w-5 h-5" />
-          </div>
+          <MrCafeLogo className="w-11 h-11 shrink-0 drop-shadow-sm group-hover:scale-105 transition-transform" />
           <div>
             <div className="flex items-center space-x-1.5">
-              <span className="font-bold text-base tracking-tight text-[#2B170B]">Brew & Bite</span>
+              <span className="font-extrabold text-lg tracking-tight text-[#2B170B] leading-tight">Mr. CAFE</span>
             </div>
-            <p className="text-[11px] text-[#8C6D53] font-medium leading-none">
+            <p className="text-[11px] text-[#8C6D53] font-semibold leading-none mt-0.5">
               Good Food · Great Vibes
             </p>
           </div>

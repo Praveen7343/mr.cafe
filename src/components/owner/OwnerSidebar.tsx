@@ -15,6 +15,7 @@ import {
   X,
   LogOut
 } from 'lucide-react';
+import { MrCafeLogo } from '../common/MrCafeLogo';
 
 interface OwnerSidebarProps {
   isOpen?: boolean;
@@ -50,13 +51,11 @@ export const OwnerSidebar: React.FC<OwnerSidebarProps> = ({ isOpen, onClose }) =
       <div>
         <div className="p-5 border-b border-[#EADBCE] flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-2xl bg-[#78350F] flex items-center justify-center text-amber-100 shadow-sm">
-              <Coffee className="w-5 h-5" />
-            </div>
+            <MrCafeLogo className="w-11 h-11 shrink-0 drop-shadow-sm" />
             <div>
-              <h1 className="font-bold text-base tracking-tight text-[#2B170B]">Brew & Bite</h1>
-              <p className="text-[11px] text-[#8C6D53] font-medium leading-none">
-                Good Food · Great Vibes
+              <h1 className="font-extrabold text-base tracking-tight text-[#2B170B] leading-tight">Mr. CAFE</h1>
+              <p className="text-[11px] text-[#8C6D53] font-semibold leading-none mt-0.5">
+                Cafe Management
               </p>
             </div>
           </div>

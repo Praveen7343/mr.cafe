@@ -58,6 +58,7 @@ interface CafeContextType {
   isAuthenticated: boolean;
   isAdmin: boolean;
   loginWithEmail: (email: string, name?: string, avatar?: string) => void;
+  loginWithMobile: (phone: string, name?: string) => void;
   loginWithGoogle: (email?: string, name?: string) => Promise<void>;
   
   menuItems: MenuItem[];
@@ -659,6 +660,31 @@ export const CafeProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
+  const loginWithMobile = (phone: string, name?: string) => {
+    const cleanPhone = phone.trim();
+    const user: UserProfile = {
+      id: `user-phone-${cleanPhone.replace(/[^0-9]/g, '') || Date.now()}`,
+      name: name || `Customer (${cleanPhone.slice(-4)})`,
+      email: `${cleanPhone.replace(/[^0-9]/g, '')}@mobile.brewandbite.com`,
+      role: 'customer',
+      avatar: `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(name || cleanPhone)}`,
+      loyaltyPoints: 100,
+      tier: 'Bronze',
+      tierLevel: 1,
+      phone: cleanPhone,
+      memberSince: 'October 2026',
+    };
+
+    setActiveUser(user);
+    setActiveRoleState('customer');
+    setIsAuthenticated(true);
+    localStorage.setItem('bnb_is_logged_in', 'true');
+    localStorage.setItem('bnb_user', JSON.stringify(user));
+    localStorage.setItem('bnb_active_role', 'customer');
+    setCustomerView('home');
+    showToast(`Welcome! Signed in with ${cleanPhone}`);
+  };
+
   const loginWithGoogle = async (email?: string, name?: string) => {
     if (email) {
       loginWithEmail(email, name);
@@ -739,6 +765,7 @@ export const CafeProvider: React.FC<{ children: React.ReactNode }> = ({ children
         isAuthenticated,
         isAdmin,
         loginWithEmail,
+        loginWithMobile,
         loginWithGoogle,
         menuItems,
         orders,
