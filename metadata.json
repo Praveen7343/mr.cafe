@@ -1,0 +1,6 @@
+{
+  "name": "Brew & Bite Cafe",
+  "description": "Artisanal cafe platform with customer ordering, loyalty points, and owner dashboard for menu and order management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
